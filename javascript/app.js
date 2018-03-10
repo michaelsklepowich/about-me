@@ -75,8 +75,6 @@ else {
 // Fifth Question
 var fifthQuestionAns = prompt('Is my favorite thing having clean socks?');
 fifthQuestionAns = fifthQuestionAns.toUpperCase();
-console.log('The user answered the fifth question with ' + fifthQuestionAns);
-
 
 if (fifthQuestionAns === 'YES' || fifthQuestionAns === 'Y') {
   alert('Correct! Clean socks are the best!');
@@ -89,5 +87,48 @@ else {
   alert('Please answer with "Yes" or "No."');
 }
 
-alert('You answered ' + answersCorrect + ' questions correctly.');
-console.log('The user answered ' + answersCorrect + ' questions correctly.');
+//Sixth Question
+var birthday = 23;
+alert('What numerical day of the month was I born on? You have 4 guesses.');
+
+for (var i = 0; i < 6; i++) {
+  var counter = 1 + i;
+  var guessLeft = 4 - counter;
+  var sixthQuestionAns = prompt('GUESS ' + counter);
+  console.log('The user answered the sixth question with ' + sixthQuestionAns);
+  sixthQuestionAns = parseInt(sixthQuestionAns);
+  if (sixthQuestionAns === birthday) {
+    alert('You got it! It only took you ' + counter + ' guess(es).');
+    answersCorrect++;
+    break
+  } else if (sixthQuestionAns > birthday) {
+    counter++;
+    alert('That guess was too high! You have ' + guessLeft + ' guess(es) remaining');
+  }
+    else if (sixthQuestionAns < birthday) {
+    counter++;
+    alert('That guess was too low! You have ' + guessLeft + ' guess(es) remaining')
+    }
+    else if(i === 5) {
+      alert('You are out of guesses. The answer was ' + birthday);
+    }
+  }
+
+//Seventh Question
+var flavors = ['vanilla', 'chocolate', 'cookie dough', 'caramel'];
+alert('Can you guess one of my favorite flavors of ice cream?');
+var seventhQuestionAns = prompt('Guess a flavor!');
+seventhQuestionAns = seventhQuestionAns.toLowerCase();
+console.log('The user answered the seventh question with ' + seventhQuestionAns);
+for (var i = 0; i < flavors.length; i++) {
+  if (flavors[i] === seventhQuestionAns) {
+    alert('You got it, ' + seventhQuestionAns + ' is one my favorites!');
+    answersCorrect++;
+  } else {
+    alert('Nope, sorry ' + seventhQuestionAns + ' is not one of my favorites.');
+    break
+  }
+}
+
+alert('You answered ' + answersCorrect + ' question(s) correctly.');
+console.log('The user answered ' + answersCorrect + ' question(s) correctly.');
